@@ -4,9 +4,73 @@
     <meta charset="UTF-8">
     <title>尚腾</title>
     <link rel="stylesheet" href="../css/normalize.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
 
 </head>
 <body>
+<div class="wrapper">
+    <header>
+        <img src="../images/logo.png" alt="尚腾logo"/>
+        <ul>
+            <li>
+                <a href="./home.html">
+                    <span>Home</span>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="./group.html">
+                    <span>Group</span>
+                    <span>尚腾集团</span>
+                </a>
+            </li>
+            <li>
+                <a href="./family.html">
+                    <span>Family</span>
+                    <span>尚腾家族</span>
+                </a>
+            </li>
+            <li>
+                <a href="./cloud.html">
+                    <span>Cloud</span>
+                    <span>尚腾云</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <span>Contact</span>
+                    <span>联系方式</span>
+                </a>
+            </li>
+        </ul>
+    </header>
 
+    <section>
+        <p>contact developing</p>
+
+    </section>
+
+    <footer>
+        <div class="link">
+            <div class="demecode">
+                <img src="../images/demecode.jpg" alt="二维码"/>
+                <span class="triangle"></span>
+            </div>
+            <img id="weichart" src="../images/weixin.jpg" alt="微信"/>
+            <img src="../images/weibo.jpg" alt="微博"/>
+        </div>
+        <p>蜀ICP备15003726号2015四川尚腾文化传播有限公司</p>
+    </footer>
+</div>
+<script src="../common/jquery-2.1.4.js"></script>
+<script>
+    $(function() {
+        $('#weichart').hover(function() {
+            $('.demecode').show();
+        }, function() {
+            $('.demecode').hide();
+        })
+    });
+</script>
 </body>
 </html>
