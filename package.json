@@ -1,4 +1,19 @@
 {
-  "name": "application-name",
-  "version": "0.0.1"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
+  "name": "shangteng",
+  "description": "shangteng",
+  "author": {
+    "name": "winter"
+  },
+  "dependencies": {
+    "grunt": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-pngmin": "*"
+  }
 }
