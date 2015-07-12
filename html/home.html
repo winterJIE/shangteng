@@ -45,11 +45,82 @@
         </ul>
     </header>
 
-    <section>
-        <p>home developing</p>
+    <section class="main-content">
+        <div class="slider-container">
+            <div class="slider">
+                <ul>
+                    <li>
+                        <a class="first-img" href=""></a>
+                    </li>
+                    <li>
+                        <a class="second-img" href=""></a>
+                    </li>
+                    <li>
+                        <a class="third-img" href=""></a>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="unslider-arrow prev"></a>
+            <a href="#" class="unslider-arrow next"></a>
+        </div>
 
+        <div class="content-wrapper">
+            <div class="about-us">
+                <div class="title about-title">
+                    <p class="detail-title">ABOUT US</p>
+                    <p class="name-en">Sunteng Cultural Group</p>
+                    <p class="name-ch">尚腾文化集团</p>
+                </div>
+                <div class="about-detail">
+                    <p>
+                        <span>尚</span>
+                        腾文化集团以文化创意为先导，从事文化商业、文化农业、文化工业、文化旅游业、产品研发设计、大型项目策划、规划、建筑外观设计，室内设计、展列设计，景观设计、平面设计，同时是西南首家集项目前期调研、规划设计、招商布局、全案营销、运营管理的一体化地产操盘商。
+                    </p>
+                </div>
+            </div>
+
+            <div class="our-cases">
+                <div class="title">
+                    <p class="detail-title">OUR CASES</p>
+                    <p class="name-en">Excellent Cases</p>
+                    <p class="name-ch">案例展示</p>
+                </div>
+
+                <div class="case-demo">
+                    <img src="../images/case-1.jpg" alt=""/>
+                    <img src="../images/case-2.jpg" alt=""/>
+                    <img src="../images/case-3.jpg" alt=""/>
+                    <img src="../images/case-4.jpg" alt=""/>
+                    <img src="../images/case-5.jpg" alt=""/>
+                    <img src="../images/case-6.jpg" alt=""/>
+                </div>
+            </div>
+
+            <div class="our-partner">
+                <div class="title">
+                    <p class="detail-title">OUR PARTNER</p>
+                    <p class="name-en">Excellent Cases</p>
+                    <p class="name-ch">合作伙伴</p>
+                </div>
+
+                <div class="partner-logo">
+                    <img src="../images/partner-1.png" alt=""/>
+                    <img src="../images/partner-2.png" alt=""/>
+                    <img src="../images/partner-3.png" alt=""/>
+                    <img src="../images/partner-4.png" alt=""/>
+                    <img src="../images/partner-5.png" alt=""/>
+                    <img src="../images/partner-6.png" alt=""/>
+                    <img src="../images/partner-7.png" alt=""/>
+                    <img src="../images/partner-8.png" alt=""/>
+                    <img src="../images/partner-9.png" alt=""/>
+                    <img src="../images/partner-10.png" alt=""/>
+                    <img src="../images/partner-11.png" alt=""/>
+                    <img src="../images/partner-12.png" alt=""/>
+                </div>
+                <p class="word">让我们共同思考，并肩作战，与尚腾一起分享文化创意带来的喜悦！</p>
+            </div>
+        </div>
     </section>
-
     <footer>
         <div class="link">
             <div class="demecode">
@@ -63,13 +134,24 @@
     </footer>
 </div>
 <script src="../common/jquery-2.1.4.js"></script>
+<script src="../common/unslider.js"></script>
 <script>
     $(function() {
         $('#weichart').hover(function() {
             $('.demecode').show();
         }, function() {
             $('.demecode').hide();
-        })
+        });
+
+        var unslider = $('.slider').unslider({
+            keys: true
+        });
+        $('.unslider-arrow').click(function() {
+            var fn = this.className.split(' ')[1];
+
+            //  Either do unslider.data('unslider').next() or .prev() depending on the className
+            unslider.data('unslider')[fn]();
+        });
     });
 </script>
 
