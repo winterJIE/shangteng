@@ -1,0 +1,59 @@
+.contact-img {
+  height: 500px;
+  background-image: url("../images/contacts-img.jpg");
+  background-size: 100%, 100%;
+}
+.contact .contact-wrapper {
+  width: 1140px;
+  margin: 0 auto;
+}
+.contact .contact-wrapper .contact-name {
+  font-size: 10px;
+  font-family: raleway-thin;
+  line-height: 40px;
+  text-align: left;
+}
+.contact .contact-wrapper .contact-value {
+  height: 40px;
+  font-size: 15px;
+  font-family: raleway-thin;
+  background-color: lightgray;
+  vertical-align: middle;
+  align-content: center;
+  line-height: 40px;
+  text-align: center;
+}
+.contact .contact-wrapper .contact-info {
+  margin-top: 50px;
+}
+.contact .contact-wrapper .contact-info .contact-title {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-family: raleway-Heavy;
+}
+.contact .contact-wrapper .contact-info .contact-detail {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 2;
+  font-family: raleway-thin;
+}
+.contact .contact-wrapper .contact-way {
+  margin-top: 50px;
+}
+.contact .contact-wrapper .contact-way .contact-address {
+  display: inline-block;
+  width: 340px;
+  float: left;
+}
+.contact .contact-wrapper .contact-way .contact-email {
+  margin-left: 55px;
+  display: inline-block;
+  width: 340px;
+  float: none;
+}
+.contact .contact-wrapper .contact-way .contact-tel {
+  display: inline-block;
+  width: 340px;
+  float: right;
+}
