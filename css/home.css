@@ -78,28 +78,52 @@
 }
 .wrapper .main-content .content-wrapper .about-us {
   margin-top: 50px;
+  background-image: url('../images/background.jpg');
+  padding-bottom: 150px;
+  background-position: 0 130px;
+  background-repeat: no-repeat;
 }
-.wrapper .main-content .content-wrapper .about-us .about-title {
+.wrapper .main-content .content-wrapper .about-title {
   display: inline-block;
+  vertical-align: top;
 }
-.wrapper .main-content .content-wrapper .about-us .about-detail {
+.wrapper .main-content .content-wrapper .about-detail {
   display: inline-block;
   width: 729px;
-  float: right;
+  margin-left: 100px;
 }
-.wrapper .main-content .content-wrapper .about-us .about-detail p {
+.wrapper .main-content .content-wrapper .about-detail p {
   line-height: 2;
   font-size: 20px;
   font-family: initial;
   text-align: justify;
 }
-.wrapper .main-content .content-wrapper .about-us .about-detail p span {
+.wrapper .main-content .content-wrapper .about-detail p span {
   line-height: 1;
   font-size: 45px;
   font-family: FZLTHK;
 }
+.wrapper .main-content .content-wrapper .about-detail p.big-title {
+  font-size: 50px;
+  line-height: 1;
+  font-family: raleway-Heavy;
+  color: #dedede;
+  margin: 25px 0 0 0;
+}
+.wrapper .main-content .content-wrapper .about-detail p.middle-title {
+  font-family: raleway-Heavy;
+  color: #dedede;
+  font-size: 35px;
+  margin: 10px 0 0 0;
+  line-height: 1;
+}
+.wrapper .main-content .content-wrapper .about-detail p.small-title {
+  font-family: fantasy;
+  font-size: 30px;
+  margin: 0;
+}
 .wrapper .main-content .content-wrapper .our-cases {
-  margin-top: 180px;
+  margin-top: 80px;
 }
 .wrapper .main-content .content-wrapper .our-cases .case-demo img {
   float: left;

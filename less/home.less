@@ -88,29 +88,52 @@
 
     .about-us {
       margin-top: 50px;
-      .about-title {
-        display: inline-block;
-      }
-      .about-detail {
-        display: inline-block;
-        width: 729px;
-        float: right;
-        p {
-          line-height: 2;
-          font-size: 20px;
-          font-family: initial;
-          text-align: justify;
-          span {
-            line-height: 1;
-            font-size: 45px;
-            font-family: FZLTHK;
-          }
+      background-image: url('../images/background.jpg');
+      padding-bottom: 150px;
+      background-position: 0 130px;
+      background-repeat: no-repeat;
+    }
+    .about-title {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .about-detail {
+      display: inline-block;
+      width: 729px;
+      margin-left: 100px;
+      p {
+        line-height: 2;
+        font-size: 20px;
+        font-family: initial;
+        text-align: justify;
+        span {
+          line-height: 1;
+          font-size: 45px;
+          font-family: FZLTHK;
+        }
+        &.big-title {
+          font-size: 50px;
+          line-height: 1;
+          font-family: raleway-Heavy;
+          color: #dedede;
+          margin: 25px 0 0 0;
+        }
+        &.middle-title {
+          font-family: raleway-Heavy;
+          color: #dedede;
+          font-size: 35px;
+          margin: 10px 0 0 0;
+          line-height: 1;
+        }
+        &.small-title {
+          font-family: fantasy;
+          font-size: 30px;
+          margin:0;
         }
       }
     }
-
     .our-cases {
-      margin-top: 180px;
+      margin-top: 80px;
       .case-demo {
         img {
           float: left;
