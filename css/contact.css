@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 .contact .contact-wrapper .contact-name {
-  font-size: 10px;
+  font-size: 15px;
   font-family: raleway-thin;
   line-height: 40px;
   text-align: left;
@@ -16,8 +16,8 @@
 .contact .contact-wrapper .contact-value {
   height: 40px;
   font-size: 15px;
-  font-family: raleway-thin;
-  background-color: lightgray;
+  font-family: FZLTXHK;
+  background-color: #f8f7f7;
   vertical-align: middle;
   align-content: center;
   line-height: 40px;
@@ -25,18 +25,19 @@
 }
 .contact .contact-wrapper .contact-info {
   margin-top: 50px;
+  color: #686767;
 }
 .contact .contact-wrapper .contact-info .contact-title {
   display: inline-block;
   margin-bottom: 20px;
   font-size: 30px;
-  font-family: raleway-Heavy;
+  font-family: FZLTXHK;
 }
 .contact .contact-wrapper .contact-info .contact-detail {
-  display: inline-block;
   font-size: 12px;
   line-height: 2;
-  font-family: raleway-thin;
+  font-family: FZLTXHK;
+  color: #c9c9c9;
 }
 .contact .contact-wrapper .contact-way {
   margin-top: 50px;
