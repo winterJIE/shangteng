@@ -3,6 +3,9 @@
   background-image: url("../images/contacts-img.jpg");
   background-size: 100%, 100%;
 }
+.contact {
+  margin-bottom: 130px;
+}
 .contact .contact-wrapper {
   width: 1140px;
   margin: 0 auto;
