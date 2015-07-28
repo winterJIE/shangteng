@@ -5,6 +5,8 @@
     <title>尚腾</title>
     <link rel="stylesheet" href="../css/normalize.css"/>
     <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/family.css"/>
+    <link rel="stylesheet" href="../css/chuanmei.css"/>
 </head>
 <body>
 <div class="wrapper">
@@ -18,14 +20,14 @@
                 </a>
             </li>
             <li class="family">
-                <a href="./family.html">
+                <a herf="javascript:;">
                     <span>Family</span>
                     <span>尚腾家族</span>
                 </a>
                 <p class="children-company">
-                    <a href="">尚腾文化创意</a>
-                    <a href="">尚腾铂睿</a>
-                    <a href="">尚腾传媒</a>
+                    <a href="./f-wenchuang.html">尚腾文化创意</a>
+                    <a href="./f-borui.html">尚腾铂睿</a>
+                    <a href="./family.html">尚腾传媒</a>
                 </p>
             </li>
             <li>
@@ -44,8 +46,19 @@
     </header>
 
     <section>
-        <p>family developing</p>
-
+        <div class="banner"></div>
+        <div class="container">
+            <div class="content1 title">
+                <h1>尚腾传媒</h1>
+                <p>从事以传统媒体、新媒体加户外媒体，专注媒体策略，事件营销，品牌策划包装推广一站式解决方案。</p>
+                <div class="pics">
+                    <img class="first-img" src="../images/family/chuanmei7.jpg" alt=""/>
+                    <img class="bicode bicode7 hide" src="../images/family/chuanmei27.jpg" alt=""/>
+                    <img class="last-img" src="../images/family/chuanmei9.jpg" alt=""/>
+                    <img class="bicode bicode9 hide" src="../images/family/chuanmei29.jpg" alt=""/>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -55,7 +68,10 @@
                 <span class="triangle"></span>
             </div>
             <img id="weichart" src="../images/weixin.jpg" alt="微信"/>
-            <img src="../images/weibo.jpg" alt="微博"/>
+            <a target="_blank" href="http://weibo.com/u/5299331257">
+                <img src="../images/weibo.jpg" alt="微博"/>
+            </a>
+
         </div>
         <p>蜀ICP备15003726号2015四川尚腾文化传播有限公司</p>
     </footer>
@@ -63,11 +79,30 @@
 <script src="../common/jquery-2.1.4.js"></script>
 <script>
     $(function() {
-        $('#weichart').hover(function() {
-            $('.demecode').show();
-        }, function() {
-            $('.demecode').hide();
-        })
+
+        function hoverImage(tar, showImage) {
+            $(tar).hover(function() {
+                $(showImage).show();
+            }, function() {
+                $(showImage).hide();
+            })
+        }
+
+        hoverImage('#weichart', '.demecode');
+
+        function toggleHide (eventTar,tarClass) {
+            var tar = $(tarClass);
+            $(eventTar).on('click', function () {
+                $(this).addClass('hide');
+                tar.removeClass('hide');
+            });
+        }
+
+        toggleHide('.first-img', '.bicode7');
+        toggleHide('.bicode7','.first-img');
+        toggleHide('.last-img', '.bicode9');
+        toggleHide('.bicode9','.last-img');
+
     });
 </script>
 </body>

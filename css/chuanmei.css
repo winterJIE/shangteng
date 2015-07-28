@@ -1,0 +1,28 @@
+.container .content1 .pics {
+  position: relative;
+  margin: 100px 0;
+  height: 550px;
+}
+.container .content1 .pics img {
+  position: absolute;
+  top: 0;
+}
+.container .content1 .pics img.last-img {
+  right: 0;
+}
+.container .content1 .pics img.first-img {
+  left: 0;
+}
+.container .content1 .pics .bicode {
+  position: absolute;
+  top: 0;
+}
+.container .content1 .pics .bicode7 {
+  left: 0;
+}
+.container .content1 .pics .bicode9 {
+  right: 0;
+}
+.container .content1 .pics .hide {
+  display: none;
+}
