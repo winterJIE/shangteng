@@ -13,6 +13,31 @@
   font-family: raleway-Heavy;
 }
 .container .title p {
-  font-size: 20px;
+  font-size: 19px;
   margin-top: 40px;
+}
+.container .common-title {
+  border-bottom: 5px solid black;
+  display: inline-block;
+}
+.container .common-title .en-title {
+  font-family: raleway-Heavy;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+.container .common-title .cn-title {
+  margin-top: 15px;
+  font-family: fantasy;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+.container .common-title2 .en-title {
+  font-family: raleway-Heavy;
+  font-size: 32px;
+}
+.container .common-title2 .en-title .gary {
+  color: #d9d9d9;
+}
+.container .common-title2 .cn-title {
+  color: #d9d9d9;
 }

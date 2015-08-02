@@ -1,3 +1,179 @@
 .banner {
   background-image: url("../images/family/wenchuangbanner.jpg");
 }
+
+.slider-container {
+  position: relative;
+  .slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+
+    ul li {
+      float: left;
+      color: black;
+    }
+
+    ul {
+      width: 300%;
+      position: relative;
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        width: 33.33%;
+
+        a {
+          display: block;
+          height: 500px;
+          width: 100%;
+          overflow: hidden;
+
+          &.first-img {
+            background-image: url("../images/family/wenchuanglogo1.jpg");
+            background-size: 100% 95%;
+            background-repeat: no-repeat;
+          }
+          &.second-img {
+            background-image: url("../images/family/wenchuanglogo2.jpg");
+            background-size: 100% 95%;
+            background-repeat: no-repeat;
+          }
+          &.third-img {
+            background-image: url("../images/family/wenchuanglogo3.jpg");
+            background-size: 100% 95%;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
+  .unslider-arrow {
+    display: inline-block;
+    height: 65px;
+    width: 45px;
+    position: absolute;
+    &.prev {
+      top: 50%;
+      left: 50px;
+      margin-top: -32px;
+      background-image: url("../images/left-arrow.png");
+    }
+    &.next {
+      top: 50%;
+      right: 50px;
+      margin-top: -32px;
+      background-image: url("../images/right-arrow.png");
+    }
+  }
+  .dots {
+    position: relative;
+    left: 50%;
+    bottom: 32px;
+    margin-left: -75px;
+    display: inline-block;
+  }
+  .dots li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    text-indent: -999em;
+    background-color: #d9d9d9;
+    border: 2px solid #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: .4;
+    -webkit-transition: background .5s, opacity .5s;
+    -moz-transition: background .5s, opacity .5s;
+    transition: background .5s, opacity .5s;
+  }
+  li.active {
+    opacity: 1;
+    border: 2px solid #e63a3a;
+  }
+}
+
+.slider-container, .slider {
+  height: 600px;
+}
+
+.bottom-pic {
+  margin-top: 35px;
+  .img-content {
+    width: 359px;
+    display: inline-block;
+    vertical-align: top;
+    img {
+      margin-bottom: 25px;
+    }
+    &.middle {
+      margin: 0 25px 0 25px;
+    }
+  }
+}
+.content4 {
+  img {
+    margin: 20px;
+    margin-left: 0;
+  }
+  .top-pics img{
+    margin-bottom: 0;
+  }
+}
+.content5 {
+  margin-bottom: 50px;
+}
+.content5 .main-content{
+  .left {
+    width: 228px;
+    display: inline-block;
+    vertical-align: top;
+    ul {
+      padding-left: 0;
+      li {
+        position: relative;
+        height: 50px;
+        line-height: 50px;
+        list-style: none;
+        color: #a1a1a1;
+        font-family: sans-serif;
+        font-size: 20px;
+        cursor: pointer;
+        span {
+          display: none;
+          width: 0;
+          height: 0;
+          border: 10px;
+          border-color: transparent transparent transparent #000000;
+          border-style: solid;
+          vertical-align: middle;
+          margin-top: 13px;
+          float: right;
+        }
+        &:hover {
+          color: #000000;
+        }
+        &.select {
+          color: #000000;
+          span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  .right {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 200px;
+    img {
+      display: none;
+      &.select {
+        display: block;
+      }
+    }
+  }
+}

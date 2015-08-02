@@ -5,6 +5,8 @@
     <title>尚腾</title>
     <link rel="stylesheet" href="../css/normalize.css"/>
     <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/family.css"/>
+    <link rel="stylesheet" href="../css/wenchuang.css"/>
 </head>
 <body>
 <div class="wrapper">
@@ -53,10 +55,97 @@
                 <p>同时还是西南首家集项目前期调研、规划设计、招商布局、全案营销、运营管理的一体化地产操盘商，
                     并且拥有国内外优秀设计师支持的创意型公司。</p>
             </div>
+            <div class="content2">
+                <div class="common-title">
+                    <p class="en-title">Brand Design</p>
+                    <p class="cn-title">品牌设计</p>
+                </div>
+                <div class="common-title2">
+                    <p class="en-title"><span>LO</span><span class="gary">GO</span></p>
+                    <p class="cn-title">理解企业核心文化价值，打造唯一企业文化品牌</p>
+                </div>
+            </div>
+            <div class="slider-container">
+                <div class="slider">
+                        <ul>
+                            <li>
+                                <a class="first-img" href=""></a>
+                            </li>
+                            <li>
+                                <a class="second-img" href=""></a>
+                            </li>
+                            <li>
+                                <a class="third-img" href=""></a>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="content3">
+                <div class="common-title2">
+                    <p class="en-title"><span>ADVER</span><span class="gary">TISING</span></p>
+                    <p class="cn-title">没有谁能比我们更引人注目</p>
+                </div>
+                <div class="bottom-pic">
+                    <div class="left img-content">
+                        <img style="width: 359px; height: 272px;" src="../images/family/wenadv01.jpg" alt="">
+                        <img src="../images/family/wenadv4.jpg" alt="">
+                    </div>
+                    <div class="middle img-content">
+                        <img src="../images/family/wenadv2.jpg" alt="">
+                        <img src="../images/cloud-8.png" alt="">
+                    </div>
+                    <div class="right img-content">
+                        <img src="../images/family/wenadv03.jpg" alt="">
+                        <img src="../images/family/wenadv6.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content4">
+                <div class="common-title2">
+                    <p class="en-title"><span>PHOTO</span><span class="gary">GRAPHY</span></p>
+                    <p class="cn-title">你想要的画面，我们只能用专业实现</p>
+                </div>
+                <div class="pics">
+                    <div class="top-pics">
+                        <img src="../images/family/wenphpoto1.jpg" alt=""/>
+                        <img src="../images/family/wenphpoto2.jpg" alt=""/>
+                    </div>
+                    <div class="bottom-pics">
+                        <img src="../images/family/wenphpoto3.jpg" alt=""/>
+                        <img src="../images/family/wenphpoto4.jpg" alt=""/>
+                        <img src="../images/family/wenphpoto5.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="content5">
+                <div class="common-title">
+                    <p class="en-title">Product Design</p>
+                    <p class="cn-title">产品设计</p>
+                </div>
+                <div class="main-content">
+                    <div class="left">
+                        <ul>
+                            <li class="select">创意U盘
+                                <span></span>
+                            </li>
+                            <li>创意音箱
+                                <span></span>
+                            </li>
+                            <li>洛带绿鸡蛋
+                                <span></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <img class="select" src="../images/family/wenu.jpg" alt=""/>
+                        <img src="../images/family/wenshe.jpg" alt=""/>
+                        <img src="../images/family/wenegg.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </section>
-
     <footer>
         <div class="link">
             <div class="demecode">
@@ -72,12 +161,29 @@
     </footer>
 </div>
 <script src="../common/jquery-2.1.4.js"></script>
+<script src="../common/unslider.js"></script>
 <script>
     $(function() {
         $('#weichart').hover(function() {
             $('.demecode').show();
         }, function() {
             $('.demecode').hide();
+        });
+
+        var unslider = $('.slider').unslider({
+            keys: true,
+            dots: true
+        });
+        $('.unslider-arrow').click(function() {
+            var fn = this.className.split(' ')[1];
+            unslider.data('unslider')[fn]();
+        });
+        var tar = $('.content5 .right img');
+        $('.left li').on('click', function (index) {
+            $(this).siblings().removeClass('select');
+            $(this).addClass('select');
+            tar.removeClass('select');
+            tar.eq($(this).index()).addClass('select');
         })
     });
 </script>
