@@ -135,7 +135,8 @@
     .our-cases {
       margin-top: 80px;
       .case-demo {
-        img {
+        .img-container {
+          position: relative;
           float: left;
           width: 360px;
           height: 275px;
@@ -143,6 +144,18 @@
           margin-bottom: 20px;
           &:nth-child(3), &:nth-child(6) {
             margin-right: 0;
+          }
+          .img-hover {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+          }
+          &:hover {
+            .img-hover {
+              display: inline-block;
+            }
           }
         }
       }
@@ -171,6 +184,27 @@
             filter: grayscale(0);
             -moz-filter: grayscale(0);
             -webkit-filter: grayscale(0);
+          }
+        }
+      }
+    }
+
+    .our-team {
+      .img-container {
+        float: left;
+        margin: 15px;
+        margin-left: 0;
+        position: relative;
+        height: 368px;
+        .img-hover {
+          display: none;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        &:hover {
+          .img-hover {
+            display: inline-block;
           }
         }
       }

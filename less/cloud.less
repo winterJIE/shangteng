@@ -49,15 +49,32 @@
 
         .bottom-pic {
           margin-top: 35px;
+          clear: both;
+          overflow: hidden;
           .img-content {
             width: 359px;
-            display: inline-block;
+            float: left;
             vertical-align: top;
-            img {
-              margin-bottom: 25px;
-            }
             &.middle {
               margin: 0 25px 0 25px;
+            }
+          }
+          .img-container {
+            position: relative;
+            float: left;
+            width: 360px;
+            margin-right: 25px;
+            margin-bottom: 25px;
+            .img-hover {
+              display: none;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+            &:hover {
+              .img-hover {
+                display: inline-block;
+              }
             }
           }
         }

@@ -115,13 +115,39 @@
   }
 }
 .content4 {
-  img {
+  .img-container {
+    float: left;
     margin: 20px;
     margin-left: 0;
+    position: relative;
+    .img-hover {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &:hover {
+      .img-hover {
+        display: inline-block;
+      }
+    }
   }
-  .top-pics img{
-    margin-bottom: 0;
+  .top-pics {
+    overflow: hidden;
+    clear: both;
+    .img-container{
+      margin-bottom: 0;
+      height: 343px;
+    }
   }
+  .bottom-pic {
+    overflow: hidden;
+    clear: both;
+    .img-container {
+      height: 465px;
+    }
+  }
+
 }
 .content5 {
   margin-bottom: 50px;

@@ -107,12 +107,35 @@
 .bottom-pic .img-content.middle {
   margin: 0 25px 0 25px;
 }
-.content4 img {
+.content4 .img-container {
+  float: left;
   margin: 20px;
   margin-left: 0;
+  position: relative;
 }
-.content4 .top-pics img {
+.content4 .img-container .img-hover {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.content4 .img-container:hover .img-hover {
+  display: inline-block;
+}
+.content4 .top-pics {
+  overflow: hidden;
+  clear: both;
+}
+.content4 .top-pics .img-container {
   margin-bottom: 0;
+  height: 343px;
+}
+.content4 .bottom-pic {
+  overflow: hidden;
+  clear: both;
+}
+.content4 .bottom-pic .img-container {
+  height: 465px;
 }
 .content5 {
   margin-bottom: 50px;

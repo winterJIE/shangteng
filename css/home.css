@@ -125,16 +125,26 @@
 .wrapper .main-content .content-wrapper .our-cases {
   margin-top: 80px;
 }
-.wrapper .main-content .content-wrapper .our-cases .case-demo img {
+.wrapper .main-content .content-wrapper .our-cases .case-demo .img-container {
+  position: relative;
   float: left;
   width: 360px;
   height: 275px;
   margin-right: 25px;
   margin-bottom: 20px;
 }
-.wrapper .main-content .content-wrapper .our-cases .case-demo img:nth-child(3),
-.wrapper .main-content .content-wrapper .our-cases .case-demo img:nth-child(6) {
+.wrapper .main-content .content-wrapper .our-cases .case-demo .img-container:nth-child(3),
+.wrapper .main-content .content-wrapper .our-cases .case-demo .img-container:nth-child(6) {
   margin-right: 0;
+}
+.wrapper .main-content .content-wrapper .our-cases .case-demo .img-container .img-hover {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.wrapper .main-content .content-wrapper .our-cases .case-demo .img-container:hover .img-hover {
+  display: inline-block;
 }
 .wrapper .main-content .content-wrapper .our-partner {
   padding-top: 180px;
@@ -159,4 +169,20 @@
   filter: grayscale(0);
   -moz-filter: grayscale(0);
   -webkit-filter: grayscale(0);
+}
+.wrapper .main-content .content-wrapper .our-team .img-container {
+  float: left;
+  margin: 15px;
+  margin-left: 0;
+  position: relative;
+  height: 368px;
+}
+.wrapper .main-content .content-wrapper .our-team .img-container .img-hover {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.wrapper .main-content .content-wrapper .our-team .img-container:hover .img-hover {
+  display: inline-block;
 }
