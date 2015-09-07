@@ -1,5 +1,6 @@
 .wrapper {
   background-color: #fff;
+  font: 12px/1.5 Microsoft Yahei, Hiragino Sans GB, tahoma, arial, '宋体', sans-serif;
 }
 .wrapper header {
   height: 95px;
@@ -72,9 +73,17 @@
   background-color: #f1f1f1;
 }
 .wrapper footer .link {
+  overflow: hidden;
+  clear: both;
   width: 125px;
   margin: 0 auto;
   position: relative;
+}
+.wrapper footer .link a {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  float: left;
 }
 .wrapper footer .link .demecode {
   display: none;
@@ -105,10 +114,10 @@
   border-color: transparent transparent transparent #787878;
 }
 .wrapper footer .link img {
-  display: inline-block;
   width: 55px;
   height: 55px;
   margin-top: 70px;
+  float: left;
 }
 .wrapper footer .link img:nth-child(2) {
   margin-left: 10px;
@@ -116,6 +125,14 @@
 .wrapper footer p {
   text-align: center;
   margin-top: 60px;
+}
+body,
+button,
+input,
+select,
+textarea {
+  color: #323237;
+  font: 12px/1.5 Microsoft Yahei, Hiragino Sans GB, tahoma, arial, '宋体', sans-serif;
 }
 @font-face {
   font-family: FZLTHK;
