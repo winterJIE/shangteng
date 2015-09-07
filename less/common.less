@@ -83,17 +83,9 @@
         background-color: #f1f1f1;
 
         .link {
-            overflow: hidden;
-            clear: both;
             width: 125px;
             margin: 0 auto;
             position: relative;
-            a {
-                display: block;
-                overflow: hidden;
-                clear: both;
-                float: left;
-            }
 
             .demecode {
                 display: none;
@@ -129,7 +121,7 @@
                 width: 55px;
                 height: 55px;
                 margin-top: 70px;
-                float: left;
+                display: inline-block;
 
                 &:nth-child(2) {
                     margin-left: 10px;
@@ -139,6 +131,7 @@
         p {
             text-align: center;
             margin-top: 60px;
+            font-size: 16px;
         }
     }
     font: 12px/1.5 Microsoft Yahei, Hiragino Sans GB, tahoma, arial, '宋体', sans-serif;
