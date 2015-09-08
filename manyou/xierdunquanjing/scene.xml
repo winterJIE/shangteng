@@ -1,0 +1,13 @@
+<krpano version="1.0.8" onstart="loadpano(%SWFPATH%/scene/k_0/k_0.xml,null,MERGE);ini();playtourbksound();" googlemap="false" idletime="5" isautoplay="false" basedir="%FIRSTXML%" bgcolor="0xffffff" actionintervalbase="frame" colorcorrection="default" logkey="false" showerrors="false" istransition="false">
+  <include url="%SWFPATH%/public/publicexml.xml" />
+  <progress showload="bar(center,18%,1.5%,2%,12,shaded,0x000000,0xcccccc,0xAAAAAA)" showwait="none" />
+  <cursors c_name="arrow" url="%SWFPATH%/plugins/arrow-cursors.png" type="4way" move="112|0|28|28" drag="112|0|28|28" arrow_l="56|0|28|28" arrow_r="0|0|28|28" arrow_d="28|0|28|28" arrow_u="84|0|28|28" arrow_lu="null" arrow_ru="null" arrow_ld="null" arrow_rd="null" />
+  <display fps="60" details="28" tessmode="-1" movequality="HIGH" stillquality="HIGH" stilltime="0.25" flash10="on" />
+  <action name="playtourbksound">
+  </action>
+  <events onmousedown="" onmouseup="" onxmlcomplete="" onloadcomplete="" onidle="" onresize="" />
+  <skin id="1003" url="skin/skin5/skin.xml" thumb_width="100" thumb_height="80" interval="15" showtype="0" />
+  <plugin name="transitionplugin" url="%SWFPATH%/plugins/videoplayer.swf" alturl="%SWFPATH%/plugins/videoplayer.js" videourl="" width="100%" height="100%" altvideourl="" posterurl="" align="center" x="0" y="0" pausedonstart="false" loop="false" volume="1.0" keetp="true" buffertime="0.1" updateeveryframe="true" onvideoready="" onvideopaused="" onvideocomplete="" onunsupported="" visible="true" zorder="10000" onloaded="" enabled="false" />
+  <scene name="scene0" scene_name="希尔顿" isobjectscene="true" isgoogle="false" ispluginmap="false" scene_xml="scene/k_0/k_0.xml" type="scene" onstart="action(loadpano,%SWFPATH%/scene/k_0/k_0.xml);" scenetype="sphere" type_id="1001" />
+  <plugin name="主页" url="%SWFPATH%/src/zhuye.png" keep="true" capture="true" x="0" y="0" width="50" height="50" visible="true" enabled="true" handcursor="true" children="true" zorder="1" alpha="1" blendmode="normal" smoothing="true" scale="1.0" align="lefttop" edge="lefttop" ox="" oy="" rotate="0" parent="" html="" css="" backgroundcolor="" bordercolor="" borderwidth="" blur="" textblur="" glow="" glowcolor="" shadow="" autosize="center" onhover="" onover="" onout="" onclick="openurl(http://sunteng.net,_blank)" onloaded="" type="plugin_p" crop="" onovercrop="" ondowncrop="" alturl="%SWFPATH%/src/zhuye.png" videourl="" altvideourl="" posterurl="" pausedonstart="false" loop="1" volume="1.0" buffertime="0.1" updateeveryframe="" onvideoready="" onvideopaused="" onvideocomplete="" onunsupported="" altonloaded="" soundurl="" isonload="" isonclick="" />
+</krpano>

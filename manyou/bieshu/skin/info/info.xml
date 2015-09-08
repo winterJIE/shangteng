@@ -1,0 +1,40 @@
+﻿<krpano>
+<plugin name="bg_right_bar2" url="bg_tab_panel.png" keep="true" align="center" edge="center" x="0" y="-80" alpha="0" enabled="true" handcursor="false" blendmode="normal" zorder="16" visible="false" />
+	<plugin name="bg_right_scroll" url="scroll_bg.png" parent="bg_right_bar2" keep="true" align="right" edge="right" x="20" y="16" alpha="0.8" enabled="true" handcursor="false" blendmode="normal" visible="true" zorder="17" />
+
+	<plugin name="bg_right_scroll_up" url="scroll_up.png" parent="bg_right_scroll" keep="true" align="top" edge="top" x="0" y="5" alpha="1" enabled="true" visible="true" zorder="18" ondown="tween(plugin[bg_right_bar2_description].y, 50, distance(1200,11.7), linear); trace(plugin[bg_right_bar2_description].y)" onup="stoptween(plugin[bg_right_bar2_description].y); trace(plugin[bg_right_bar2_description].height)" />
+	<plugin name="bg_right_scroll_down" url="scroll_down.png" parent="bg_right_scroll" keep="true" align="bottom" edge="bottom" x="0" y="5" alpha="1" enabled="true" visible="true" zorder="18" ondown="set(offset, 350); sub(offset, get(plugin[bg_right_bar2_description].height)); if(plugin[bg_right_bar2_description].height > 300, tween(plugin[bg_right_bar2_description].y, get(offset), distance(1200,11.7), linear))" onup="stoptween(plugin[bg_right_bar2_description].y); trace(plugin[bg_right_bar2_description].height)" />
+	<plugin name="bg_right_bar2_title" parent="bg_right_bar2" style="info_title" html="" />
+	<plugin name="bg_right_bar2_description" parent="bg_right_bar2" style="info_description" mask="bg_right_bar2_desc_mask" />
+	<plugin name="bg_right_bar2_desc_mask" parent="bg_right_bar2" url="black.png" keep="true" align="lefttop" edge="lefttop" x="30" y="50" width="280" height="297" alpha="1" enabled="true" blendmode="normal" zorder="17" />
+<plugin name="bg_right_close" url="closebutton.png" parent="bg_right_bar2" keep="true" align="righttop" edge="righttop" x="2" y="2" alpha="0.9" enabled="true" handcursor="false" blendmode="normal" visible="true" zorder="17" onclick="set(plugin[bg_right_bar2].visible,false)" />
+<style	name="info_title"
+			url="%SWFPATH%/plugins/textfield.swf" children="false"
+			width="320" height="40" x="160" y="20"
+			css="p {color:#000000; font-family:Arial; font-weight:bold; font-size:12px; margin-left:0; margin-right:0; text-align:left; }" 
+			background="false" backgroundcolor="0xcccccc" roundedge="0" shadow="0" borderwidth="0" glow="0" glowcolor="0x999999" 
+			keep="true" align="lefttop" edge="lefttop" visible="true" alpha="1" zorder="12"
+			enabled="false"
+		   />
+<style	name="info_description"
+			url="%SWFPATH%/plugins/textfield.swf" children="false"
+			width="280" autosize="left" x="30" y="50"
+			css="p{color:#000000; font-family:Arial;line-height: 20px; font-weight:normal; font-size:12px; margin-left:0; margin-right:0; text-align:left; }" 
+			background="false" backgroundcolor="0xcccccc" roundedge="0" shadow="0" borderwidth="0" glow="0" glowcolor="0x999999" 
+			keep="true" align="lefttop" edge="lefttop" visible="true" alpha="1" zorder="12"
+			enabled="false"
+			
+		   />
+<action name='startinfo'>
+	
+txtadd(cc,'<p>', get(config.scene_name),'</p>');
+txtadd(nn,'<p>',get(data[scene_content].content),'</p>');
+  set(plugin[bg_right_bar2_title].html,get(cc));
+ set(plugin[bg_right_bar2_description].html, get(nn));
+	    set(plugin[bg_right_bar2_description].y, 50);
+set(plugin[bg_right_bar2].visible,true);
+tween(plugin[bg_right_bar2].alpha,1);
+	   </action>
+
+
+</krpano>

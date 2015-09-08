@@ -1,0 +1,283 @@
+﻿<krpano>
+  <action name="ini">
+	  set(heading, 0);
+	  set(t_pos, 86);
+	  set(page, 1);
+	</action>
+  <action name="addhospot" about="系统事件谨慎修改，用于动态添加热点">
+	addhotspot(newspot);
+  set(hotspot[newspot].url,../../src/hot.png);
+set(hotspot[newspot].ath,get('view.hlookat'));
+set(hotspot[newspot].atv,get('view.vlookat'));
+set(hotspot[newspot].width,48);
+set(hotspot[newspot].height,48);
+set(hotspot[newspot].usecontentsize,true);
+	</action>
+  <action name="loadpano" about="系统事件谨慎修，改加载全景">
+		loadpano(%SWFPATH%/%1, null,  MERGE, ZOOMBLEND(1.5,10),null);
+	</action>
+  <action name="updatehospot" about="系统事件谨慎修改,更新添加的热点属性">
+tween(hotspot[newspot].ath,get('view.hlookat'));
+tween(hotspot[newspot].atv,get('view.vlookat'));
+set(update,hotspot[newspot]);
+	</action>
+  <action name="loadxml" about="系统事件谨慎修改,加载XML及设置属性">
+    	set(plugin[%1].x,%3);
+    	set(plugin[%1].y,%4);
+    	set(plugin[radar].x,%3);
+    	set(plugin[radar].y,%4);
+	    loadpano(%2,null,KEEPALL,BLEND(2));
+	    set(plugin[radar].heading,10);
+    </action>
+  <action name="update_map_spot" about="系统事件谨慎修改,更新地图锚点">
+		plugin[map].activatespot(%1);
+		plugin[map].pantospot(%1);
+	</action>
+  <action name="load_korfustadt_altefestung" about="系统事件谨慎修改更新地图锚点的状态">
+		update_map_spot(%2);
+		loadpano(%1, null, MERGE, BLEND(1));
+	</action>
+  <action name="load_korfustadt_altefestung_oben" about="系统事件谨慎修，改更新地图锚点的状态">
+		update_map_spot(%2);
+		loadpano(%1, null, MERGE, BLEND(1));
+	</action>
+ 
+  <action name="activatespot" about="关联地图锚点">
+		set(plugin[map_%1].visible,true);
+                 set(plugin[map_%1].keep,true);
+               	set(plugin[activespot].parent, spot_%2);
+		set(plugin[activespot].visible, true);
+                set(plugin[radar].parent, map_%1);
+		copy(plugin[radar].x, plugin[spot_%2].x);
+		copy(plugin[radar].y, plugin[spot_%2].y);
+		set(plugin[radar].visible, true);
+		set(plugin[radar].heading, %3);
+set_attrs(plugin,keep,true,parent,map_%1,keep,false,type,pluginmap);
+
+	</action>
+
+<action name="actionmap">
+set(plugin[activespot].parent, spot_%1);
+		set(plugin[activespot].visible, true);
+              
+		copy(plugin[radar].x, plugin[spot_%1].x);
+		copy(plugin[radar].y, plugin[spot_%1].y);
+		set(plugin[radar].visible, true);
+		set(plugin[radar].heading, %2);
+</action>
+<action name="start">
+action(setthumbs,get(config.scene_num),get(config.type_id));
+action(typetumb_x,get(config.type_id));
+delayedcall(0.4,if(config.scene_map==true,set_attr(plugin,visible,false,m_type,panomap);set(plugin[activespot].visible,true);set(plugin[radar].visible,true);activatespot(get(config.type_id),get(config.scene_num),get(config.heading));,set(plugin[activespot].visible,false);set(plugin[radar].visible,false);));
+delayedcall(0.5,set(heading,0);if(googlemap==true,plugin[map].activatespot(get(config.scene_num)); plugin[map].pantospot(get(config.scene_num));));
+copy(skinid,get(skin.id));
+if(skin.id==1002,wait(0.2);add(h,get(config.heading),92.62);set(plugin[c_box].heading,get(h)););
+if(skin.id==1009,set(plugin[skin_tooltip].html,get(config.scene_name));set(progress.showload,none););
+</action>
+  <action name="draghotspot">
+  if(dragging, 
+	screentosphere(mouse.x,mouse.y,ath,atv);
+	delayedcall(0,draghotspot());
+	);
+</action>
+  <action name="onhover_drag">
+	if (drag==true,
+		sub(dx,mouse.x);sub(dy,mouse.y);
+		
+		if (align==right,mul(dx,-1),);
+		if (align==righttop,mul(dx,-1),);
+		if (align==rightbottom,mul(dx,-1),);
+		
+		if (align==bottom,mul(dy,-1),);
+		if (align==leftbottom,mul(dy,-1),);
+		if (align==rightbottom,mul(dy,-1),);
+		
+		sub(mx,x,dx);sub(my,y,dy);
+		set(x,get(mx));set(y,get(my));
+		copy(dx,mouse.x);copy(dy,mouse.y);delayedcall(0.1,onhover_drag();),
+	)
+    </action>
+  <action name="ondown_drag">
+	set(drag,true);
+	copy(dx,mouse.x);copy(dy,mouse.y);
+    </action>
+  <action name="onup_drag">
+		if (drag==true,
+			sub(dx,mouse.x);sub(dy,mouse.y);
+		
+			if (align==right,mul(dx,-1),);
+			if (align==righttop,mul(dx,-1),);
+			if (align==rightbottom,mul(dx,-1),);
+			
+			if (align==bottom,mul(dy,-1),);
+			if (align==leftbottom,mul(dy,-1),);
+			if (align==rightbottom,mul(dy,-1),);
+			
+			sub(mx,x,dx);sub(my,y,dy);
+			tween(x,get(mx),0.1);tween(y,get(my),0.1);
+			set(drag,false);
+			
+			,
+		)
+    </action>
+<action name="set_attr">
+		sub(i,%1.count,1);
+		if(i GE 0,set_loop_all_attr(get(i),%1,%2,%3,%4,%5));
+	</action>
+
+	<action name="set_loop_all_attr">
+		if(%5 == null,
+			set(%2[%1].%3,%4);
+			,
+			if(%2[%1].%5 == %6,
+				set(%2[%1].%3,%4);
+				);
+			);
+		dec(i);
+		if(i GE 0, set_loop_all_attr(get(i),%2,%3,%4,%5,%6) );
+	</action> 
+		<action name="set_attrs">
+		sub(i,%1.count,1);
+		if(i GE 0,set_loop_all_attrs(get(i),%1,%2,%3,%4,%5,%6,%7,%8,%9));
+	</action>
+
+	<action name="set_loop_all_attrs">
+		if(%5 == null,
+			set(%2[%1].%3,%4);
+			,
+			if(%2[%1].%5 == %6,
+				set(%2[%1].%3,%4),if(%2[%1].%9==%10,set(%2[%1].%7,%8));
+				);
+			);
+		dec(i);
+		if(i GE 0, set_loop_all_attrs(get(i),%2,%3,%4,%5,%6) );
+	</action>
+<action name="typetumb_x">
+set_attr(plugin,visible,false,t_visible,type);set(plugin[t_bg_%1].visible,true);set(plugin[t_bg_%1].mask,plugin[t_mask]);set_type(plugin,type_%1);set(plugin[type_%1].url,get(plugin[type_%1].b_url));set(plugin[type_%1].type,active);
+</action>
+  <action name="typetumb">
+action(loadpano,get(first_url));
+</action>
+  <action name="set_type">
+sub(i,%1.count,1);if(i GE 0,set_loop_all_type(get(i),%2));	
+</action>
+  <action name="set_loop_all_type">
+ if(plugin[%1].type == active,if(plugin[%1].name != %2,set(plugin[%1].url,get(plugin[%1].l_url)););set(plugin[%1].type,typeimg););
+  dec(i);if(i GE 0, set_loop_all_type(get(i),%2) );
+</action>
+  <action name="setthumbs">
+copy(bg_width,plugin[t_box].width);
+copy(bg_x,plugin[t_bg_%2].x);
+copy(s_width,plugin[%1].x);
+mul(dst,get(plugin[%1].x),-1);
+add(dsw,get(plugin[%1].width),45);
+  if(dst !=0,add(dst,dst,get(dsw)));
+  if(s_width GT bg_width,tween(plugin[t_bg_%2].x,get(dst),0.4,linear);,if(bg_x LT 0,tween(plugin[t_bg_%2].x,get(dst),0.4,linear);));
+set_attr(plugin,effect,glow(0xFFFFFF,1,6,250),parent,t_bg_%2);
+set(plugin[%1].effect,glow(0xFF4242,1,6,250));
+</action>
+ <action name="rotate360">
+set(autorotate.enabled,true);set(autorotate.speed,%1);
+set(xurl,get(config.down_scene));if(xurl!='',playsound(asound, %SWFPATH%/plugins/bgsound.mp3, 1, action(loadpano,get(config.down_scene));););
+set(idletime,1);
+</action>
+ <action name="showpic" about="显示一张图片，点击图片后隐藏">addplugin(picmode);set(plugin[picmode].url,%1);set(plugin[picmode].scale,%2);set(plugin[picmode].enable,true);set(plugin[picmode].visible,true);set(plugin[picmode].align,center);set(plugin[picmode].zorder,100);
+set(plugin[picmode].onloaded,set(alpha,0); tween(alpha,1.0););
+set(plugin[picmode].onclick,action(hidepic,picmode));
+</action>
+  <action name="hidepic" about="隐藏图片">
+if(plugin[%1].enabled,set(plugin[%1].enabled,false);
+tween(plugin[%1].alpha,0.0);
+removeplugin(%1);removeplugin(plugin_close);removeplugin(plugin_frame); );
+</action>
+
+<action name='showinfo'>
+	
+txtadd(cc,'<p>', %1,'</p>');
+txtadd(nn,'<p>',%2,'</p>');
+  set(plugin[bg_right_bar2_title].html,get(cc));
+ set(plugin[bg_right_bar2_description].html, get(nn));
+	    set(plugin[bg_right_bar2_description].y, 50);
+set(plugin[bg_right_bar2].visible,true);
+tween(plugin[bg_right_bar2].alpha,1);
+	   </action>
+<action name="scene_info">
+set(pic,get(config.scene_infopic));
+showpic(get(pic),1);
+set(showtime,get(config.showpictime));
+delayedcall(get(showtime), hidepic(picmode));
+</action>
+<action name="flyout">
+		copy(backup_rx,rx);
+		copy(backup_ry,ry);
+		copy(backup_rz,rz);
+		copy(backup_scale,scale);
+		tween(rx, 0);
+		tween(ry, 0);
+		tween(rz, 0);
+		tween(scale, 1.5);
+		tween(flying, 1.0);
+</action>
+<action name="flyback">	
+	tween(rx, get(backup_rx));
+		tween(ry, get(backup_ry));
+		tween(rz, get(backup_rz));
+		tween(scale, get(backup_scale));
+		tween(flying, 0.0);
+</action>
+
+<action name="addplayvideo">
+addplugin(plugin_frame);
+set(plugin[plugin_frame].url,%SWFPATH%/skin/info/bg_tab_panel.png);
+
+set(plugin[plugin_frame].keep,true);
+
+set(plugin[plugin_frame].width,%2);
+set(plugin[plugin_frame].height,%3);
+set(plugin[plugin_frame].align,center);
+set(plugin[plugin_frame].x,0);
+set(plugin[plugin_frame].y,0);
+set(plugin[plugin_frame].alpha,1);
+set(plugin[plugin_frame].visible,true);
+set(plugin[plugin_frame].zorder,17);
+addplugin(pluginvideo);
+set(plugin[pluginvideo].url,%SWFPATH%/plugins/videoplayer.swf);
+set(plugin[pluginvideo].alturl,%SWFPATH%/plugins/videoplayer.js);
+set(plugin[plugin_close].parent,plugin_frame);
+set(plugin[pluginvideo].videourl,%1);
+set(plugin[pluginvideo].width,%2);
+set(plugin[pluginvideo].height,%3);
+set(plugin[pluginvideo].altvideourl,%4);
+set(plugin[pluginvideo].align,center);
+set(plugin[pluginvideo].x,0);
+set(plugin[pluginvideo].y,0);
+set(plugin[pluginvideo].pausedonstart,false);
+set(plugin[pluginvideo].loop,false);
+set(plugin[pluginvideo].volume,1);
+set(plugin[pluginvideo].keetp,true);
+set(plugin[pluginvideo].buffertime,0.1);
+set(plugin[pluginvideo].updateeveryframe,true);
+set(plugin[pluginvideo].scalechildren,false);
+set(plugin[pluginvideo].onvideocomplete,%5);
+set(plugin[pluginvideo].visible,true);
+set(plugin[pluginvideo].zorder,18);
+set(plugin[pluginvideo].onclick,togglepause());
+addplugin(plugin_close);
+set(plugin[plugin_close].url,%SWFPATH%/skin/info/close.gif);
+set(plugin[plugin_close].parent,plugin_frame);
+set(plugin[plugin_close].keep,true);
+set(plugin[plugin_close].keep,true);
+set(plugin[plugin_close].width,46);
+set(plugin[plugin_close].height,14);
+set(plugin[plugin_close].align,righttop);
+set(plugin[plugin_close].edge,righttop);
+set(plugin[plugin_close].x,-60);
+set(plugin[plugin_close].y,0);
+set(plugin[plugin_close].alpha,0.9);
+set(plugin[plugin_close].visible,true);
+set(plugin[plugin_close].zorder,19);
+set(plugin[plugin_close].onclick,action(hidepic,pluginvideo));
+
+</action>
+
+ </krpano>

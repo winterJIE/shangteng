@@ -1,0 +1,11 @@
+<krpano version="1.0.8" onstart="">
+  <control mousetype="moveto" />
+  <config scene_name="书房" scene_num="scene6" scene_map="false" heading="0" type_id="1001" up_scene="%SWFPATH%/scene/k_5/k_5.xml" down_scene="%SWFPATH%/scene/k_7/k_7.xml" scene_type="sphere" hlookat="0" vlookat="0" info_type="1" scene_infopic="" />
+  <include url="image.xml" />
+  <events onmousedown="" onmouseup="" onxmlcomplete="start();" onpreviewcomplete="" onloadcomplete="" onclick="" />
+  <data name="scene_content">
+  </data>
+  <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" fovmin="30" fovmax="130" limitfov="true" fisheye="0.0" fisheyefovlink="0.0" limitview="range" hlookatmin="-180" hlookatmax="180" vlookatmin="-90" vlookatmax="90" />
+  <hotspot name="楼梯间" url="%SWFPATH%/src/1.png" keep="false" capture="true" ath="151.1264689926839" atv="14.971898146048685" zoom="false" distorted="false" width="50" height="44" visible="true" enabled="true" handcursor="true" children="true" zorder="0" alpha="1" blendmode="normal" smoothing="true" refreshrate="auto" onhover="showtext(楼梯间,smalltext);" onclick="looktohotspot(楼梯间);action(loadpano,%SWFPATH%/scene/k_4/k_4.xml);" details="8" flying="0" inverserotation="false" usecontentsize="false" rx="0.0" ry="0.0" rz="0.0" type="hotspot" onover="" onout="" onloaded="" ishotspot="true" ishotspotarea="false" scenename="楼梯间" scale="1" backup_rx="0" backup_ry="0" backup_rz="0" backup_scale="0" crop="" onvercrop="" ondowncrop="" alturl="%SWFPATH%/src/1.png" videourl="" altvideourl="" posterurl="" pausedonstart="false" loop="true" volume="1.0" buffertime="0.1" updateeveryframe="" onvideoready="" onvideopaused="" onvideocomplete="" onunsupported="" altonloaded="" isonload="" isonclick="" range="90" s_ath="0" s_atv="0" s_fov="90" />
+  <autorotate enabled="true" waittime="1.5" speed="3" tofov="off" horizon="" />
+</krpano>

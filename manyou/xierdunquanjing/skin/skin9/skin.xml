@@ -1,0 +1,262 @@
+<krpano >
+
+	<skin_settings bingmaps="false"
+	               bingmaps_key=""
+	               bingmaps_zoombuttons="false"
+	               gyro="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               controlbar_offset="20"
+	               />
+
+
+
+	<style name="skin_base" url="vtourskin.png" />
+
+	<style name="skin_glow"
+	       ondown="copy(skin_lockglow,name); skin_buttonglow(get(name)); if(ondown2, ondown2() );"
+	       onover="if(skin_lockglow === null, copy(skin_lockglow,name); skin_buttonglow(get(name),0.3) ); "
+	       onout="if(skin_lockglow === name, ifnot(pressed, skin_buttonglow(null);delete(skin_lockglow); ));"
+	       onup="if(hovering, skin_buttonglow(get(name),0.3), skin_buttonglow(null);delete(skin_lockglow); ); if(onup2, onup2() );"
+	       />
+
+	<style name="skin_thumbtext_style" url="%SWFPATH%/plugins/textfield.swf" align="bottom" width="100%" autoheight="true" y="5" enabled="false" background="false" border="false" css="text-align:center; color:#FFFFFF; font-family:Arial; font-weight:bold; font-size:10px;" textshadow="1" />
+
+	<style name="skin_hotspotstyle" url="vtourskin_hotspot.png" scale="0.5" edge="top" oy="0" distorted="false"
+	       tooltip=""
+	       onclick="if(linkedscene, skin_hidetooltips(); tween(scale,0.25,0.5); tween(oy,-20,0.5); tween(alpha,0,0.5); looktohotspot(); loadscene(get(linkedscene),null,MERGE,BLEND(1)); skin_updatescroll(); );"
+	       onloaded=""
+	       />
+
+
+
+
+	
+
+	<plugin name="c_box" type="container" keep="true" align="leftbottom" width="100%" height="100%" x="0" y="60" y_opened="60" y_closed="-2" maskchildren="true" onloaded="set(plugin[t_box].parent,skin_thumbs);set(plugin[t_box].url,%SWFPATH%/skin/scrollimg/scrollimg.png);set(hl,get(plugin[t_box].height);">
+		<plugin name="skin_scroll_plugin" type="container" align="leftbottom" width="100%" height="100%" x="0" y="-100%">
+			<plugin name="skin_topborder" style="skin_base" crop="2|0|60|12" align="topleft" edge="bottomleft" width="100%" height="12" x="0" y="0" enabled="false" />
+		
+			<plugin name="skin_scroll_container" type="container" bgcolor="0x000000" bgalpha="0.5" align="lefttop" width="100%" height="100%" x="0" y="0" maskchildren="true">
+					
+				
+					<plugin name="skin_thumbs" state="closed" url="%SWFPATH%/plugins/scrollarea.swf" alturl="%SWFPATH%/plugins/scrollarea.js" direction="h" align="top" width="100%"  zorder="1" onloaded="set(hl,10);add(hl,plugin[t_box].height);set(height,get(hl)));skin_updatescroll();" onscroll="skin_updatethumbscroll();" />
+				
+			
+			</plugin>
+		</plugin>
+	</plugin>
+<plugin name="skin_tooltip" keep="true"
+	       url="%SWFPATH%/plugins/textfield.swf"
+	       parent="skin_scroll_plugin"
+	       visible="true" alpha="1" enabled="true"
+	       align="lefttop" edge="bottom" x="40" y="0" ox="0" oy="-2" width="200" autoheight="true"
+	       background="false" backgroundcolor="0xFFFFFF" backgroundalpha="1.0"
+	       border="false" bordercolor="0x000000" borderalpha="1.0" borderwidth="1.0" roundedge="0"
+	       shadow="0.0" shadowrange="4.0" shadowangle="45" shadowcolor="0x000000" shadowalpha="1.0"
+	       textshadow="1" textshadowrange="6.0" textshadowangle="90" textshadowcolor="0x000000" textshadowalpha="1.0"
+	       css="text-align:center; color:#FFFFFF; font-family:Arial; font-weight:bold; font-size:16px;"
+	       html=""
+	       />
+
+	<plugin name="skin_control_bar" keep="true" type="container" bgcolor="0x000000" bgalpha="0.5" align="leftbottom" width="100%" height="40" x="0" y="20" y_opened="20" y_closed="-42" zorder="3">
+		<plugin name="skin_btmborder"  style="skin_base"           crop="2|52|60|12"   align="bottomleft" edge="topleft" width="100%" height="12" x="0" y="0" enabled="false" />
+		<plugin name="skin_btn_prev"   style="skin_base|skin_glow" crop="0|64|64|64"   align="left"        x="5"    y="0"   scale="0.5" alpha="1"  onclick="set(yurl,get(config.up_scene));if(yurl!='',action(loadpano,get(config.up_scene)););" />
+		<plugin name="skin_btn_next"   style="skin_base|skin_glow" crop="64|64|64|64"  align="right"       x="5"    y="0"   scale="0.5" alpha="1"  onclick="set(xurl,get(config.down_scene));if(xurl!='',action(loadpano,get(config.down_scene)););" />
+		<plugin name="skin_btn_thumbs" style="skin_base|skin_glow" crop="0|128|64|64"  align="leftbottom"  x="50"   y="4"   scale="0.5" ondown2="skin_showmap(false); skin_showthumbs();set(plugin[t_box_left].visible,false);set(plugin[t_box_right].visible,false);" />
+		<plugin name="skin_btn_map"    style="skin_base|skin_glow" crop="64|128|64|64" align="leftbottom"  x="90"   y="4"   scale="0.5" ondown2="skin_showthumbs(false); skin_showmap();" visible="false" />
+		<plugin name="skin_btn_lt"     style="skin_base|skin_glow" crop="0|192|64|64"  align="bottom"      x="-100" y="4"   scale="0.5" ondown2="set(hlookat_moveforce,-1);" onup2="set(hlookat_moveforce,0);" />
+		<plugin name="skin_btn_rt"     style="skin_base|skin_glow" crop="64|192|64|64" align="bottom"      x="-60"  y="4"   scale="0.5" ondown2="set(hlookat_moveforce,+1);" onup2="set(hlookat_moveforce,0);" />
+		<plugin name="skin_btn_up"     style="skin_base|skin_glow" crop="0|256|64|64"  align="bottom"      x="-20"  y="4"   scale="0.5" ondown2="set(vlookat_moveforce,-1);" onup2="set(vlookat_moveforce,0);" />
+		<plugin name="skin_btn_dn"     style="skin_base|skin_glow" crop="64|256|64|64" align="bottom"      x="+20"  y="4"   scale="0.5" ondown2="set(vlookat_moveforce,+1);" onup2="set(vlookat_moveforce,0);" />
+		<plugin name="skin_btn_in"     style="skin_base|skin_glow" crop="0|320|64|64"  align="bottom"      x="+60"  y="4"   scale="0.5" ondown2="set(fov_moveforce,-1);"     onup2="set(fov_moveforce,0);" />
+		<plugin name="skin_btn_ou"     style="skin_base|skin_glow" crop="64|320|64|64" align="bottom"      x="+100" y="4"   scale="0.5" ondown2="set(fov_moveforce,+1);"     onup2="set(fov_moveforce,0);" />
+		<plugin name="skin_btn_gyro"   style="skin_base|skin_glow" crop="0|384|64|64"  align="bottom"      x="140"  y="4"   scale="0.5" ondown2="skin_showmap(false);" onclick="switch(plugin[skin_gyro].enabled);" visible="false" devices="html5" />
+		<plugin name="skin_btn_fs"     style="skin_base|skin_glow" crop="0|576|64|64"  align="bottom"      x="140"  y="4"   scale="0.5" onclick="switch(fullscreen);" devices="fullscreensupport" />
+		<plugin name="skin_btn_hide"   style="skin_base|skin_glow" crop="0|448|64|64"  align="right"       x="50"   y="0"   scale="0.5" onclick="skin_hideskin()" />
+		<plugin name="skin_btn_show"   style="skin_base|skin_glow" crop="64|448|64|64" align="right"       x="5"    y="-36" scale="0.5" alpha="0" visible="false" onclick="skin_showskin()" />
+	</plugin>
+
+	<plugin name="skin_loadingtext"  keep="true" url="%SWFPATH%/plugins/textfield.swf" align="center" x="5" y="-5" html="loading..." visible="false" autoheight="true" background="false" border="false" enabled="false" css="text-align:center; color:#FFFFFF; font-family:Arial; font-weight:bold; font-size:22px; font-style:italic;" textshadow="2" />
+	<plugin name="skin_buttonglow"   keep="true" style="skin_base" crop="64|384|64|64" align="center" x="0" y="1" alpha="0.0" visible="false" enabled="false" />
+	<plugin name="skin_thumbborder"  keep="true" url="vtourskin_thumbborder.png" visible="false" enabled="false" align="lefttop" scale="0.5" ox="-2" oy="-2" />
+	<plugin name="skin_logo"         keep="true" url="" align="righttop" x="5" y="5" capture="false" accuracy="1" state="small" onclick="if(state == 'small', skin_openlogo(); , skin_closelogo('now'); opened_onclick(); );" />
+
+
+
+	<events name="skin_events" keep="true"
+	        onxmlcomplete="set(events[skin_events].onxmlcomplete,null); skin_startup();"
+	        onnewpano="skin_showloading(true); skin_update_scene_infos();"
+	        onremovepano="skin_showloading(true);"
+	        onloadcomplete="skin_showloading(false);"
+	        onresize="skin_onresize();"
+	        />
+
+	<events name="skin_events" devices="fullscreensupport"
+	        onenterfullscreen="set(plugin[skin_btn_fs].crop, '64|576|64|64');"
+	        onexitfullscreen="set(plugin[skin_btn_fs].crop, '0|576|64|64');"
+	        />
+
+	<action name="skin_onresize">
+		mul(mh, stageheight, -1);
+		if(plugin[skin_thumbs].state == 'opened', add(mh,plugin[skin_thumbs].height); );
+		if(plugin[skin_map].state == 'opened', sub(hh,stageheight,skin_settings.controlbar_offset); sub(hh,plugin[skin_control_bar].height); sub(hh,32); copy(plugin[skin_map].height, hh); add(mh,hh); );
+		set(plugin[skin_scroll_plugin].y, get(mh));
+		ifnot(device.mobile, if(stagewidth LT 480, skin_showbuttons(false), skin_showbuttons(true)); );
+	</action>
+
+	<action name="skin_showbuttons">
+		set(plugin[skin_btn_lt].visible, %1);
+		set(plugin[skin_btn_rt].visible, %1);
+		set(plugin[skin_btn_up].visible, %1);
+		set(plugin[skin_btn_dn].visible, %1);
+		set(plugin[skin_btn_in].visible, %1);
+		set(plugin[skin_btn_ou].visible, %1);
+		if(%1 == true,
+			if(plugin[skin_gyro].available == true, set(plugin[skin_btn_gyro].visible, %1) );
+			if(device.fullscreensupport, set(plugin[skin_btn_fs].visible, %1) );
+		  ,
+			set(plugin[skin_btn_gyro].visible, %1);
+			set(plugin[skin_btn_fs].visible, %1);
+		  );
+	</action>
+
+	<action name="skin_updatescroll">
+		if(plugin[skin_thumbs].loaded,
+			set(cursceneindex, 0);
+			if(xml.scene, copy(cursceneindex, scene[get(xml.scene)].index));
+			plugin[skin_thumbs].setcenter(get(scene[get(cursceneindex)].thumbx), get(scene[get(cursceneindex)].thumby));
+		  );
+	</action>
+
+	<action name="skin_updatethumbscroll">
+		copy(padding,skin_settings.thumbs_padding);
+		if(device.mobile, mul(padding,2));
+
+		if(skin_settings.thumbs_scrollbuttons,
+			if(loverflow GT 0, set(plugin[skin_thumbs_scrollleft].visible,true),  set(plugin[skin_thumbs_scrollleft].visible,false) );
+			if(roverflow GT 0, set(plugin[skin_thumbs_scrollright].visible,true), set(plugin[skin_thumbs_scrollright].visible,false) );
+		  );
+
+		if(skin_settings.thumbs_scrollindicator,
+			if(woverflow GT 0,
+				set(plugin[skin_thumbs_scrollindicator].visible,true);
+				sub(iw,pixelwidth,woverflow);
+				div(pw,iw,pixelwidth);
+				div(px,loverflow,woverflow);
+				mul(pw,iw);
+				copy(plugin[skin_thumbs_scrollindicator].width,pw);
+				sub(iw,pw);
+				sub(iw,padding);
+				sub(iw,padding);
+				mul(px,iw);
+				add(px,padding);
+				copy(plugin[skin_thumbs_scrollindicator].x,px);
+			  ,
+				set(plugin[skin_thumbs_scrollindicator].visible,false);
+			  );
+		  );
+	</action>
+
+
+
+
+
+	<action name="skin_nextscene_loop">
+		add(newsceneindex, scene[get(xml.scene)].index, %1);
+		sub(lastsceneindex, scene.count, 1);
+		if(newsceneindex LT 0, copy(newsceneindex,lastsceneindex));
+		if(newsceneindex GT lastsceneindex, set(newsceneindex,0));
+		plugin[skin_thumbs].scrolltocenter(get(scene[get(newsceneindex)].thumbx), get(scene[get(newsceneindex)].thumby));
+		loadscene(get(scene[get(newsceneindex)].name), null, MERGE, BLEND(0.5));
+	</action>
+
+	<action name="skin_showloading">
+		set(plugin[skin_loadingtext].visible, %1);
+	</action>
+
+	<action name="skin_hidetooltips">
+	
+	</action>
+
+	<action name="skin_buttonglow">
+		if(%1 != null,
+			set(strength,0.7);
+			if(%2 != null, set(strength,%2));
+			set(plugin[skin_buttonglow].parent, %1);
+			set(plugin[skin_buttonglow].visible, true);
+			tween(plugin[skin_buttonglow].alpha, get(strength), 0.07);
+		  ,
+			tween(plugin[skin_buttonglow].alpha, 0.0, 0.1, default, set(plugin[skin_buttonglow].parent, null); set(plugin[skin_buttonglow].visible, false); );
+		  );
+	</action>
+
+	<action name="skin_hideskin">
+		if(plugin[skin_map].state != 'closed', skin_showmap(false); wait(0.4); );
+		if(plugin[skin_thumbs].state != 'closed', skin_showthumbs(false); wait(0.25); );
+		tween(plugin[c_box].y, get(plugin[c_box].y_closed), 0.5, easeOutQuint);
+		tween(plugin[skin_control_bar].y, get(plugin[skin_control_bar].y_closed), 0.5, easeOutQuint);
+		set(plugin[skin_btn_show].visible,true);
+		tween(plugin[skin_btn_show].alpha, 1, 0.25, easeOutQuint);
+	</action>
+
+	<action name="skin_showskin">
+		tween(plugin[c_box].y, get(plugin[c_box].y_opened), 0.5, easeOutQuint);
+		tween(plugin[skin_control_bar].y, get(plugin[skin_control_bar].y_opened), 0.5, easeOutQuint);
+		set(plugin[skin_btn_show].visible,false);
+		tween(plugin[skin_btn_show].alpha,0,0);
+	</action>
+
+	<action name="skin_showthumbs">
+		if(%1 == null, if(plugin[skin_thumbs].state == 'closed', set(show,true), set(show,false)); , set(show,%1); );
+		mul(mh, plugin[skin_scroll_plugin].pixelheight, -1);
+		if(plugin[skin_scroll_plugin].y == -100%, copy(plugin[skin_scroll_plugin].y,mh));
+		if(show,
+			set(plugin[skin_thumbs].state, 'opened');
+			add(mh, plugin[skin_thumbs].height);
+			tween(plugin[skin_scroll_plugin].y, get(mh), 0.5, easeOutQuint);
+			set(plugin[skin_thumbs_container].visible, true);
+			tween(plugin[skin_thumbs_container].alpha, 1.0, 0.25);
+			tween(plugin[skin_map].alpha, 0.0, 0.25, default, set(plugin[skin_map].visible,false));
+		  ,
+			set(plugin[skin_thumbs].state, 'closed');
+			tween(plugin[skin_scroll_plugin].y, get(mh), 0.5, easeOutQuint, set(plugin[skin_thumbs_container].visible, false););
+		  );
+	</action>
+
+	<action name="skin_showmap">
+		if(%1 == null, if(plugin[skin_map].state == 'closed', set(show,true), set(show,false)); , set(show,%1); );
+		mul(mh, plugin[skin_scroll_plugin].pixelheight, -1);
+		if(plugin[skin_scroll_plugin].y == -100%, copy(plugin[skin_scroll_plugin].y,mh));
+		if(show,
+			tween(plugin[skin_logo].alpha, 0.0, 0.25, default, set(plugin[skin_logo].visible,false));
+			tween(plugin[skin_thumbs_container].alpha, 0.0, 0.25, default, set(plugin[skin_thumbs_container].visible,false));
+			set(plugin[skin_map].visible, true);
+			tween(plugin[skin_map].alpha, 1.0, 0.25);
+			set(plugin[skin_map].state, 'opened');
+			sub(hh,stageheight,skin_settings.controlbar_offset);
+			sub(hh,plugin[skin_control_bar].height);
+			sub(hh,32);
+			add(mh,hh);
+			copy(plugin[skin_map].height, hh);
+			tween(plugin[skin_scroll_plugin].y, get(mh), 0.5, easeOutQuint);
+		  ,
+			set(plugin[skin_map].state, 'closed');
+			set(plugin[skin_logo].visible, true); tween(plugin[skin_logo].alpha, 1.0, 0.25);
+			tween(plugin[skin_scroll_plugin].y, get(mh), 0.5, easeOutQuint, set(plugin[skin_map].visible,false) );
+		  );
+	</action>
+
+	
+	
+
+</krpano>

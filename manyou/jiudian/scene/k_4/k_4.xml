@@ -1,0 +1,11 @@
+<krpano version="1.0.8" onstart="">
+  <control mousetype="moveto" />
+  <config scene_name="客房02" scene_num="scene4" scene_map="false" heading="0" type_id="1001" up_scene="%SWFPATH%/scene/k_3/k_3.xml" down_scene="%SWFPATH%/scene/k_0/k_0.xml" scene_type="sphere" hlookat="0" vlookat="0" info_type="1" scene_infopic="" />
+  <include url="image.xml" />
+  <events onmousedown="" onmouseup="" onxmlcomplete="start();" onpreviewcomplete="" onloadcomplete="" onclick="" />
+  <data name="scene_content">
+  </data>
+  <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" fovmin="30" fovmax="130" limitfov="true" fisheye="0.0" fisheyefovlink="0.0" limitview="range" hlookatmin="-180" hlookatmax="180" vlookatmin="-90" vlookatmax="90" />
+  <autorotate enabled="false" waittime="1.5" speed="10" tofov="off" />
+  <hotspot name="大厅" url="%SWFPATH%/src/vtourskin_hotspot.png" keep="false" capture="true" ath="90.86528323731934" atv="32.38089251506503" zoom="false" distorted="false" width="60" height="50" visible="true" enabled="true" handcursor="true" children="true" zorder="0" alpha="1" blendmode="normal" smoothing="true" refreshrate="auto" onhover="showtext(大厅,smalltext);" onclick="looktohotspot(大厅);action(loadpano,%SWFPATH%/scene/k_2/k_2.xml);" details="8" flying="0" inverserotation="false" usecontentsize="false" rx="0.0" ry="0.0" rz="0.0" type="hotspot" onover="" onout="" onloaded="" ishotspot="true" ishotspotarea="false" scenename="大厅" scale="1" backup_rx="0" backup_ry="0" backup_rz="0" backup_scale="0" crop="" onvercrop="" ondowncrop="" alturl="%SWFPATH%/src/vtourskin_hotspot.png" videourl="" altvideourl="" posterurl="" pausedonstart="false" loop="true" volume="1.0" buffertime="0.1" updateeveryframe="" onvideoready="" onvideopaused="" onvideocomplete="" onunsupported="" altonloaded="" isonload="" isonclick="" range="90" s_ath="0" s_atv="0" s_fov="90" />
+</krpano>

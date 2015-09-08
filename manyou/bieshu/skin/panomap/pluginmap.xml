@@ -1,0 +1,6 @@
+<krpano>
+
+    <plugin name="activespot" url="%SWFPATH%/skin/panomap/mappointactive.png" zorder="4" align="ceneter" edge="center" type="spox" keep="true" visible="false" parent=""  />
+  <plugin name="radar" url="%SWFPATH%/plugins/radar.swf" zorder="3" align="lefttop" edge="center" parent="" x="126" y="89" type="radar" width="80" height="80" scale="1" fillcolor="0xed1c24" heading="0" keep="true" alturl="%SWFPATH%/plugins/radar.js" visible="false" />
+
+</krpano>

@@ -1,0 +1,11 @@
+<krpano>
+  <include url="%SWFPATH%/skin/scrollimg/galley.xml" />
+  <include url="%SWFPATH%/skin/info/info.xml" />
+  <include url="%SWFPATH%/public/action.xml" />
+  <plugin name="soundinterface" url="%SWFPATH%/plugins/soundinterface.swf" alturl="%SWFPATH%/plugins/soundinterface.js" rootpath="%CURRENTXML%" preload="true" keep="true" mute="true" />
+  <textstyle name="smalltext" font="Arial" fontsize="12" bold="false" border="false" background="false" textcolor="0x000000" alpha="1" textalign="bottom" xoffset="" yoffset="" effect="glow(0xffffff,0.7,4,2);dropshadow(2,45,0xffffff,3,1);" />
+  <events onmousedown="" onmouseup="" onxmlcomplete="" onpreviewcomplete="" onloadcomplete="" />
+  <plugin name="gyro" url="%SWFPATH%/plugins/gyro.js" keep="true" enabled="true" camroll="true" friction="0.5" velastic="0.2" />
+  <plugin name="dblclick" url="%SWFPATH%/plugins/dblclick.swf" alturl="%SWFPATH%/plugins/dblclick.js" keep="true" ondblclick="switch(fullscreen)" />
+  <include url="%SWFPATH%/skin/skin7/skin.xml" />
+</krpano>

@@ -1,0 +1,10 @@
+<krpano version="1.0.8" onstart="">
+  <control mousetype="moveto" />
+  <config scene_name="珠宝展厅" scene_num="scene0" scene_map="false" heading="0" type_id="1001" up_scene="%SWFPATH%/%SWFPATH%/scene/k_0/k_0.xml" down_scene="%SWFPATH%/%SWFPATH%/scene/k_0/k_0.xml" scene_type="sphere" hlookat="0" vlookat="0" info_type="1" scene_infopic="" />
+  <include url="image.xml" />
+  <events onmousedown="" onmouseup="" onxmlcomplete="start();" onpreviewcomplete="" onloadcomplete="" onclick="" />
+  <data name="scene_content">
+  </data>
+  <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" fovmin="30" fovmax="130" limitfov="true" fisheye="0.0" fisheyefovlink="0.0" limitview="range" hlookatmin="-180" hlookatmax="180" vlookatmin="-90" vlookatmax="90" />
+  <autorotate enabled="true" waittime="1.5" speed="3" tofov="off" horizon="" />
+</krpano>

@@ -1,0 +1,21 @@
+<krpano version="1.0.8" onstart="">
+  <control mousetype="moveto" />
+  <config scene_name="书房" scene_num="scene6" scene_map="false" heading="0" type_id="1001" up_scene="%SWFPATH%/scene/k_5/k_5.xml" down_scene="%SWFPATH%/scene/k_7/k_7.xml" scene_type="sphere" hlookat="0" vlookat="0" info_type="1" scene_infopic="" />
+  <include url="image.xml" />
+  <events onmousedown="" onmouseup="" onxmlcomplete="start();" onpreviewcomplete="" onloadcomplete="" onclick="" />
+  <data name="scene_content">
+  </data>
+  <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" fovmin="30" fovmax="130" limitfov="true" fisheye="0.0" fisheyefovlink="0.0" limitview="range" hlookatmin="-180" hlookatmax="180" vlookatmin="-90" vlookatmax="90" />
+  <display flash10="off" details="24" />
+  <style name="hotspot_ani_white" crop="0|0|128|128" framewidth="128" frameheight="128" frame="0" lastframe="24" scale="0.8" onloaded="hotspot_animate();" />
+  <action name="normalview">
+  </action>
+  <action name="hotspot_animate">	inc(frame,1,get(lastframe),0);
+		mul(ypos,frame,frameheight);
+		txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+		delayedcall(0.03, if(loaded, hotspot_animate() ) );</action>
+  <events onloadcomplete="delayedcall(2.0, normalview());" />
+  <textstyle name="hotspottextstyle" font="Arial" fontsize="18" bold="true" italic="true" textcolor="0xFFF7EF" background="false" border="false" alpha="1" blendmode="layer" effect="glow(0x000000,0.5,4,3);dropshadow(4,45,0x000000,4,0.66);" origin="cursor" edge="bottom" textalign="center" xoffset="0" yoffset="-3" noclip="true" showtime="0.1" fadetime="0.25" fadeintime="0.1" />
+  <hotspot name="楼梯间" url="%SWFPATH%/src/shangjiantou.png" ath="150.65838047799045" atv="18.124026503979586" width="75" height="75" style="hotspot_ani_white" onhover="showtext(楼梯间,hotspottextstyle);" onclick="looktohotspot(楼梯间);action(loadpano,%SWFPATH%/scene/k_4/k_4.xml);" type="动态热点" />
+  <autorotate enabled="true" waittime="1.5" speed="2" tofov="off" horizon="" />
+</krpano>

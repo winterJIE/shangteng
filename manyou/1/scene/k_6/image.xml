@@ -1,0 +1,14 @@
+﻿<krpano>
+<preview url="k_6.tiles/preview.jpg" />
+<image type="CUBE" multires="true" tilesize="512" progressive="false">
+		<level tiledimagewidth="1273" tiledimageheight="1273">
+			<cube url="k_6.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="637" tiledimageheight="637">
+			<cube url="k_6.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+		</level>
+		<mobile>
+			<cube url="k_6.tiles/mobile_%s.jpg" />
+		</mobile>
+	</image>
+</krpano>

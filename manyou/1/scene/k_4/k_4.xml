@@ -1,0 +1,24 @@
+<krpano version="1.0.8" onstart="">
+  <control mousetype="moveto" />
+  <config scene_name="楼梯间" scene_num="scene4" scene_map="false" heading="0" type_id="1001" up_scene="%SWFPATH%/scene/k_3/k_3.xml" down_scene="%SWFPATH%/scene/k_5/k_5.xml" scene_type="sphere" hlookat="0" vlookat="0" info_type="1" scene_infopic="" />
+  <include url="image.xml" />
+  <events onmousedown="" onmouseup="" onxmlcomplete="start();" onpreviewcomplete="" onloadcomplete="" onclick="" />
+  <data name="scene_content">
+  </data>
+  <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" fovmin="30" fovmax="130" limitfov="true" fisheye="0.0" fisheyefovlink="0.0" limitview="range" hlookatmin="-180" hlookatmax="180" vlookatmin="-90" vlookatmax="90" />
+  <display flash10="off" details="24" />
+  <style name="hotspot_ani_white" crop="0|0|128|128" framewidth="128" frameheight="128" frame="0" lastframe="24" scale="0.8" onloaded="hotspot_animate();" />
+  <action name="normalview">
+  </action>
+  <action name="hotspot_animate">	inc(frame,1,get(lastframe),0);
+		mul(ypos,frame,frameheight);
+		txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+		delayedcall(0.03, if(loaded, hotspot_animate() ) );</action>
+  <events onloadcomplete="delayedcall(2.0, normalview());" />
+  <textstyle name="hotspottextstyle" font="Arial" fontsize="18" bold="true" italic="true" textcolor="0xFFF7EF" background="false" border="false" alpha="1" blendmode="layer" effect="glow(0x000000,0.5,4,3);dropshadow(4,45,0x000000,4,0.66);" origin="cursor" edge="bottom" textalign="center" xoffset="0" yoffset="-3" noclip="true" showtime="0.1" fadetime="0.25" fadeintime="0.1" />
+  <hotspot name="主卧" url="%SWFPATH%/src/shangjiantou.png" ath="113.85017962468257" atv="43.71130115266528" width="70" height="70" style="hotspot_ani_white" onhover="showtext(主卧,hotspottextstyle);" onclick="looktohotspot(主卧);action(loadpano,%SWFPATH%/scene/k_5/k_5.xml);" type="动态热点" />
+  <hotspot name="书房" url="%SWFPATH%/src/shangjiantou.png" ath="-59.32145883682904" atv="47.54572170277728" width="70" height="70" style="hotspot_ani_white" onhover="showtext(书房,hotspottextstyle);" onclick="looktohotspot(书房);action(loadpano,%SWFPATH%/scene/k_6/k_6.xml);" type="动态热点" />
+  <hotspot name="女儿房" url="%SWFPATH%/src/shangjiantou.png" ath="9.784371040835481" atv="0.709023405593799" width="75" height="75" style="hotspot_ani_white" onhover="showtext(女儿房,hotspottextstyle);" onclick="looktohotspot(过道);action(loadpano,%SWFPATH%/scene/k_1/k_1.xml);" type="动态热点" />
+  <hotspot name="过道" url="%SWFPATH%/src/shangjiantou.png" ath="68.86892953709548" atv="44.93799047769403" width="75" height="75" style="hotspot_ani_white" onhover="showtext(过道,hotspottextstyle);" onclick="looktohotspot(过道);action(loadpano,%SWFPATH%/scene/k_1/k_1.xml);" type="动态热点" />
+  <autorotate enabled="true" waittime="1.5" speed="2" tofov="off" horizon="" />
+</krpano>
